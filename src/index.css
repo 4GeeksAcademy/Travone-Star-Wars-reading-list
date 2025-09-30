@@ -1,0 +1,47 @@
+/* Horizontal scrolling for cards */
+.overflow-auto {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Footer at bottom */
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* Card hover effect */
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
