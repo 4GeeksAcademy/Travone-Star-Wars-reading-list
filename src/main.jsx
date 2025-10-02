@@ -9,9 +9,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* Provide global state to all components */}
+    
     <StoreProvider>
-      {/* Set up routing for the application */}
+      
       <RouterProvider router={router} />
     </StoreProvider>
   </React.StrictMode>

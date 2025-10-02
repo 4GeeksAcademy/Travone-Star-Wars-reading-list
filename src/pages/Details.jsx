@@ -17,12 +17,11 @@ const Details = () => {
       setLoading(true);
       try {
         if (type === "people") {
-          // Use new API for people
+          
           const response = await fetch(`https://akabab.github.io/starwars-api/api/id/${id}.json`);
           const data = await response.json();
           setDetails(data);
         } else {
-          // Use SWAPI for vehicles and planets
           const response = await fetch(`https://www.swapi.tech/api/${type}/${id}`);
           const data = await response.json();
           setDetails(data.result.properties);
@@ -66,19 +65,22 @@ const Details = () => {
     );
   }
 
-  // Get image URL
-  const getImageUrl = () => {
-    if (type === "people" && details.image) {
-      return details.image;
-    }
-    
-    const placeholders = {
-      vehicles: `https://via.placeholder.com/600x400/000000/FFD700?text=${encodeURIComponent(details.name)}`,
-      planets: `https://via.placeholder.com/600x400/1a1a2e/FFD700?text=${encodeURIComponent(details.name)}`
-    };
-    
-    return placeholders[type] || 'https://via.placeholder.com/600x400';
+  
+const getImageUrl = () => {
+  
+  if (type === "people" && details.image) {
+    return details.image;
+  }
+
+  
+  const placeholders = {
+    vehicles: `https://placehold.co/600x400/000000/FFE81F?text=${encodeURIComponent(details.name || type)}`,
+    planets: `https://placehold.co/600x400/1a1a2e/FFE81F?text=${encodeURIComponent(details.name || type)}`
   };
+
+  
+  return placeholders[type] || "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+};
 
   const imgUrl = getImageUrl();
 

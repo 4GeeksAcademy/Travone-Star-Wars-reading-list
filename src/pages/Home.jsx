@@ -7,13 +7,13 @@ const Home = () => {
   const { store, dispatch } = useGlobalReducer();
 
   useEffect(() => {
-    // Load all data when component mounts
+    
     actions.loadPeople(dispatch);
     actions.loadVehicles(dispatch);
     actions.loadPlanets(dispatch);
   }, [dispatch]);
 
-  // Debug: Log the data to see what we're getting
+
   useEffect(() => {
     if (store.people.length > 0) {
       console.log("People data:", store.people);
@@ -28,7 +28,6 @@ const Home = () => {
 
   return (
     <div className="container">
-      {/* Characters Section */}
       <div className="mb-5">
         <h2 className="text-danger mb-3">
           <i className="fas fa-user me-2"></i>
@@ -47,7 +46,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Vehicles Section */}
       <div className="mb-5">
         <h2 className="text-danger mb-3">
           <i className="fas fa-rocket me-2"></i>
@@ -66,7 +64,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Planets Section */}
       <div className="mb-5">
         <h2 className="text-danger mb-3">
           <i className="fas fa-globe me-2"></i>
